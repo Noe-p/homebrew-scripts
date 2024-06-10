@@ -12,8 +12,8 @@ push: ## Push les modifications avec un nouveau tag
 	git commit -m "$message"
 	git push
 	@Read -p "Entrez le numéro de version : " version
-	git tag $version
-	git push origin $version
+	git tag $$version
+	git push --tags
 	@cd ./homebrew-optimize && git add . && git commit -m "Version $version" && git push
 	@echo "Push terminé"
 	
