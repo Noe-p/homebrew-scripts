@@ -4,6 +4,13 @@
 
 The `optimize` script is designed to optimize and resize images and videos within a specified folder or file. It provides several options to customize the optimization process, including the ability to copy media to a separate folder before processing, setting the degree of optimization, and selecting the output format.
 
+## Installation
+
+```sh
+brew tap Noe-p/optimize
+brew install optimize
+```
+
 ## Utilisation
 
 ```sh
