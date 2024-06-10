@@ -6,15 +6,9 @@ help:
 
 #-- GIT
 push: ## Push les modifications avec un nouveau tag
-	@echo -ne "N'oubliez pas de modifier la version dans le fichier ./homebrew-optimize/optimize.rb"
-	@Read -p "Entrez le message du commit : " message
-	git add .
-	git commit -m "$message"
-	git push
-	@Read -p "Entrez le numéro de version : " version
-	git tag -a "$version" -m "$message"
-	git push origin "$version"
-	@cd ./homebrew-optimize
+	@echo "N'oubliez pas de modifier la version dans le fichier ./homebrew-optimize/optimize.rb"
+
+	@cd ./homebrew-optimize/
 	git add .
 	git commit -m "$message"
 	git push
