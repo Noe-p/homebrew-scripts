@@ -7,14 +7,12 @@ help:
 #-- GIT
 push: ## Push les modifications avec un nouveau tag
 	@echo "N'oubliez pas de modifier la version dans le fichier ./homebrew-optimize/optimize.rb"
-	@Read -p "Entrez le message du commit : " message
-	git add .
-	git commit -m "$message"
-	git push
-	@Read -p "Entrez le numéro de version : " version
-	git tag -a $version -m "Version $version"
-	git push --tags
-	@cd ./homebrew-optimize && git add . && git commit -m "Version $version" && git push
-	@echo "Push terminé"
-	
-	
+	@read -p "Entrez le message du commit : " message; \
+	git add .; \
+	git commit -m "$$message"; \
+	git push; \
+	read -p "Entrez le numéro de version : " version; \
+	git tag -a $$version -m "Version $$version"; \
+	git push --tags; \
+	cd ./homebrew-optimize && git add . && git commit -m "Version $$version" && git push; \
+	echo "Push terminé"
