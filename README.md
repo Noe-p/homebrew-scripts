@@ -11,6 +11,20 @@ brew tap Noe-p/optimize
 brew install optimize
 ```
 
+## Update
+
+```sh
+brew update
+brew upgrade optimize
+```
+
+## Uninstallation
+
+```sh
+brew uninstall optimize
+brew untap Noe-p/optimize
+```
+
 ## Utilisation
 
 ```sh
@@ -25,10 +39,10 @@ Optimizes and resizes images and videos in the specified **FOLDER** or **FILE**.
   Copies the media to a "rush" folder before optimizing and resizing.
 
 - `-d, --degree` DEGREE  
-  Sets the degree of optimization from 0 to 99. The default is 50.
+  Sets the degree of optimization from 0 to 99. The default is 50. 0 is the least optimized (highest quality), and 99 is the most optimized (lowest quality).
 
 - `-f, --format` FORMAT  
-  Chooses the output format (png, jpg, webp). The default is webp.
+  Chooses the output format (png, jpg, webp). The default is webp. Only applies to images.
 
 - `-l, --logo` LOGO  
   Resizes a logo to standard sizes (512, 384, 192, etc.).
