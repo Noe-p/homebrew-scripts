@@ -1,89 +1,52 @@
-# Optimize Script README
+# Homebrew Scripts
 
-## Introduction
-
-The `optimize` script is designed to optimize and resize images and videos within a specified folder or file. It provides several options to customize the optimization process, including the ability to copy media to a separate folder before processing, setting the degree of optimization, and selecting the output format.
+Ce dépôt contient plusieurs formules Homebrew pour différentes commandes personnalisées.
 
 ## Installation
 
+Pour installer une des commandes, vous pouvez utiliser Homebrew.
+
 ```sh
-brew tap Noe-p/optimize
-brew install optimize
+brew tap Noe-p/[NOM_DE_LA_COMMANDE]
+brew install [NOM_DE_LA_COMMANDE]
 ```
 
-## Update
+## Mise à jour
+
+Pour mettre à jour une commande installée, exécutez les commandes suivantes :
 
 ```sh
 brew update
-brew upgrade optimize
+brew upgrade [NOM_DE_LA_COMMANDE]
 ```
 
-## Uninstallation
+## Désinstallation
+
+Pour désinstaller une commande, exécutez les commandes suivantes :
 
 ```sh
-brew uninstall optimize
-brew untap Noe-p/optimize
+brew uninstall [NOM_DE_LA_COMMANDE]
+brew untap Noe-p/[NOM_DE_LA_COMMANDE]
 ```
 
-## Utilisation
+## Commandes disponibles
+
+### 1. Optimize
+
+Le script `optimize` est conçu pour optimiser et redimensionner des images et vidéos dans un dossier spécifié ou un fichier. Il offre plusieurs options pour personnaliser le processus d'optimisation.
+
+Pour installer la commande `optimize`, utilisez :
 
 ```sh
-optimize [DOSSIER|FICHIER] [OPTIONS]
+brew install optimize
 ```
 
-Optimizes and resizes images and videos in the specified **FOLDER** or **FILE**.
+### 2. WhatMyIp
 
-### Options
+La commande `whatMyIp` permet de connaître son adresse IP.
 
-- `-r, --rush`  
-  Copies the media to a "rush" folder before optimizing and resizing.
-
-- `-d, --degree` DEGREE  
-  Sets the degree of optimization from 0 to 99. The default is 50. 0 is the least optimized (highest quality), and 99 is the most optimized (lowest quality).
-
-- `-f, --format` FORMAT  
-  Chooses the output format (png, jpg, webp). The default is webp. Only applies to images.
-
-- `-l, --logo` LOGO  
-  Resizes a logo to standard sizes (512, 384, 192, etc.).
-
-- `-h, --help`  
-  Displays this help message and exits.
-
-## Exemples
-
-- `optimize .`  
-  Optimizes media in the current folder with a default degree of 50 and in webp format.
-
-- `optimize ./photo.png`  
-  Optimizes the specified image with a default degree of 50 and in webp format.
-
-- `optimize . -d 80`  
-  Optimizes media in the current folder with a degree of 80 and in webp format.
-
-- `optimize . -r`  
-  Copies the media to a "rush" folder, then optimizes with a default degree of 50 and in webp format.
-
-- `optimize ./photo.png --degree 10 --format png`  
-  Optimizes the specified image with a degree of 10 and in png format.
-
-- `optimize -l logo.png`  
-  Resizes the specified logo to standard sizes.
-
-## Notes
-
-- Ensure that you have the necessary dependencies installed for the script to run, such as `mogrify` and `convert` (part of the ImageMagick suite).
-- The script supports various image formats including jpg, jpeg, png, webp, gif, bmp, and tiff.
-- The degree of optimization determines the quality and size reduction, with 0 being the least optimized (highest quality) and 99 being the most optimized (lowest quality).
-
-## Installation
-
-To use this script, ensure it is executable and sourced properly:
+Pour installer la commande `whatMyIp`, utilisez :
 
 ```sh
-chmod +x optimize.sh
+brew install whatMyIp
 ```
-
-Then, run the script using the `optimize` command as described above.
-
-For any questions or further assistance, please refer to the script comments and documentation or contact the author.
