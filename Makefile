@@ -14,5 +14,5 @@ push: ## Push les modifications avec un nouveau tag
 	read -p "Entrez le numéro de version : " version; \
 	git tag -a $$version -m "Version $$version"; \
 	git push --tags; \
-	cd ./homebrew-optimize && git add . && git commit -m "Version $$version" && git push; \
+	cd ./homebrew-taps && git add . && git commit -m "Version $$version" && git push; \
 	echo "\033[1;32mPush terminé\033[0m"
