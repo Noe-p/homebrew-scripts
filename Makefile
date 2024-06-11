@@ -40,5 +40,5 @@ new: ## Crée une nouvelle formule Homebrew
 	echo "  test do" >> homebrew-taps/$$name.rb; \
 	echo "    system \"#{bin}/$$name\", \"--help\"" >> homebrew-taps/$$name.rb; \
 	echo "  end" >> homebrew-taps/$$name.rb; \
-	echo "end" >> homebrew-taps/$$name.rb; \
+	echo "end" >> homebrew-taps/Formula/$$name.rb; \
 	printf "\033[1;32mFormule créée avec succès : homebrew-taps/$$name.rb\033[0m\n"

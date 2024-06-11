@@ -41,12 +41,12 @@ Pour installer la commande `optimize`, utilisez :
 brew install optimize
 ```
 
-### 2. WhatMyIp
+### 2. Generate QrCode
 
-La commande `whatMyIp` permet de connaître son adresse IP.
+Le script `generate-qrcode` est conçu pour générer un code QR à partir d'une chaîne de texte spécifiée. Il offre plusieurs options pour personnaliser le code QR généré.
 
-Pour installer la commande `whatMyIp`, utilisez :
+Pour installer la commande `generate-qrcode`, utilisez :
 
 ```sh
-brew install whatMyIp
+brew install generate-qrcode
 ```
