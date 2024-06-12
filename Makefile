@@ -6,8 +6,10 @@ help:
 
 #-- GIT
 push: ## Push les modifications avec un nouveau tag
-	@echo "\033[1;31mN'oubliez pas de modifier la version dans le fichier ./homebrew-taps/\033[0m"
-	@read -p "Entrez le numéro de version : " version; \
+	@echo "\033[1;31mN'oubliez pas de modifier la version dans le fichier ./homebrew-taps/script.rb\033[0m"
+	@last_tag=$(shell git describe --tags --abbrev=0); \
+	echo "\033[1;33mDernière version : $$last_tag\033[0m"; \
+	read -p "Entrez le numéro de version : " version; \
 	git add .; \
 	git commit -m "Version $$version"; \
 	git push; \
@@ -33,7 +35,7 @@ new: ## Crée une nouvelle formule Homebrew
 	echo "  depends_on \"imagemagick\"" >> homebrew-taps/$$name.rb; \
 	echo "" >> homebrew-taps/$$name.rb; \
 	echo "  def install" >> homebrew-taps/$$name.rb; \
-	echo "    bin.install \"$$name.sh\" => \"$$name\"" >> homebrew-taps/$$name.rb; \
+	echo "    bin.install \"./scripts/$$name.sh\" => \"$$name\"" >> homebrew-taps/$$name.rb; \
 	echo "  end" >> homebrew-taps/$$name.rb; \
 	echo "" >> homebrew-taps/$$name.rb; \
 	echo "  test do" >> homebrew-taps/$$name.rb; \
