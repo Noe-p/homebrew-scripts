@@ -11,7 +11,7 @@ ROUGE='\033[0;31m'
 
 # Fonction d'affichage de l'aide
 show_help() {
-    echo -e "${VERT}Utilisation:${NC} $0 <texte_a_encoder> [<chemin_de_sortie>] [OPTIONS]"
+    echo -e "${VERT}Utilisation:${NC} generate-qr <texte_a_encoder> [<chemin_de_sortie>] [OPTIONS]"
     echo -e "Génère un QR code à partir du texte fourni."
     echo ""
     echo -e "${VERT}Options:${NC}"
@@ -19,10 +19,10 @@ show_help() {
     echo -e "  ${ORANGE}-h, --help${NC}       Afficher cette aide et quitter."
     echo ""
     echo -e "${VERT}Exemples:${NC}"
-    echo -e "  ${ORANGE}$0 'Bonjour le monde'${NC}             Génère un QR code avec le texte 'Bonjour le monde' et le sauvegarde dans ./qrcode.png."
-    echo -e "  ${ORANGE}$0 'Bonjour le monde' /chemin/vers/dossier${NC}  Génère un QR code et le sauvegarde dans le dossier spécifié."
-    echo -e "  ${ORANGE}$0 'Bonjour le monde' /chemin/vers/fichier.png${NC}  Génère un QR code et le sauvegarde dans le fichier spécifié."
-    echo -e "  ${ORANGE}$0 'Bonjour le monde' -s 50${NC}       Génère un QR code avec une taille de 50."
+    echo -e "  ${ORANGE}generate-qr 'Bonjour le monde'${NC}             Génère un QR code avec le texte 'Bonjour le monde' et le sauvegarde dans ./qrcode.png."
+    echo -e "  ${ORANGE}generate-qr 'Bonjour le monde' /chemin/vers/dossier${NC}  Génère un QR code et le sauvegarde dans le dossier spécifié."
+    echo -e "  ${ORANGE}generate-qr 'Bonjour le monde' /chemin/vers/fichier.png${NC}  Génère un QR code et le sauvegarde dans le fichier spécifié."
+    echo -e "  ${ORANGE}generate-qr 'Bonjour le monde' -s 50${NC}       Génère un QR code avec une taille de 50."
 }
 
 # Fonction d'affichage de l'usage

@@ -7,11 +7,10 @@ help:
 #-- GIT
 push: ## Push les modifications avec un nouveau tag
 	@echo "\033[1;31mN'oubliez pas de modifier la version dans le fichier ./homebrew-taps/\033[0m"
-	@read -p "Entrez le message du commit : " message; \
+	@read -p "Entrez le numéro de version : " version; \
 	git add .; \
-	git commit -m "$$message"; \
+	git commit -m "Version $$version"; \
 	git push; \
-	read -p "Entrez le numéro de version : " version; \
 	git tag -a $$version -m "Version $$version"; \
 	git push --tags; \
 	cd ./homebrew-taps && git add . && git commit -m "Version $$version" && git push; \
