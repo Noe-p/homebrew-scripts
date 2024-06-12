@@ -41,12 +41,24 @@ Pour installer la commande `optimize`, utilisez :
 brew install optimize
 ```
 
-### 2. Generate QrCode
-
-Le script `generate-qrcode` est conçu pour générer un code QR à partir d'une chaîne de texte spécifiée. Il offre plusieurs options pour personnaliser le code QR généré.
-
-Pour installer la commande `generate-qrcode`, utilisez :
+Pour obtenir de l'aide sur l'utilisation de la commande, exécutez :
 
 ```sh
-brew install generate-qrcode
+optimize -h
+```
+
+### 2. Generate QrCode
+
+Le script `generate-qr` est conçu pour générer un QR code à partir d'une chaîne de texte spécifiée. Il offre plusieurs options pour personnaliser le code QR généré.
+
+Pour installer la commande `generate-qr`, utilisez :
+
+```sh
+brew install generate-qr
+```
+
+Pour obtenir de l'aide sur l'utilisation de la commande, exécutez :
+
+```sh
+generate-qr -h
 ```
