@@ -7,7 +7,7 @@ Ce dépôt contient plusieurs formules Homebrew pour différentes commandes pers
 Pour installer une des commandes, vous pouvez utiliser Homebrew.
 
 ```sh
-brew tap Noe-p/[NOM_DE_LA_COMMANDE]
+brew tap Noe-p/homebrew-taps
 brew install [NOM_DE_LA_COMMANDE]
 ```
 
