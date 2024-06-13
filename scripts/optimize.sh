@@ -225,8 +225,8 @@ copy_medias_to_rush() {
 
 optimize_medias_and_resize() {
     TIMER_START=$(date +%s)
-    resize_images "$search_dir" "$degree"
     optimize_images "$search_dir" "$degree" "$format"
+    resize_images "$search_dir" "$degree"
     optimize_video "$search_dir" "$degree"
     TIMER_END=$(date +%s)
     TIMER_DIFF=$((TIMER_END - TIMER_START))

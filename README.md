@@ -26,7 +26,7 @@ Pour désinstaller une commande, exécutez les commandes suivantes :
 
 ```sh
 brew uninstall [NOM_DE_LA_COMMANDE]
-brew untap Noe-p/[NOM_DE_LA_COMMANDE]
+brew untap Noe-p/homebrew-taps
 ```
 
 ## Commandes disponibles
