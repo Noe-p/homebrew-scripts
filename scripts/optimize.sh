@@ -49,7 +49,23 @@ optimize_images() {
     local format=${3:-"webP"}
     local quality=$((100 - degree))
 
-    if [ -d "$source" ]; then
+    optimize_file() {
+        local file=$1
+        local temp_file="${file%.*}_temp.${format}"
+        echo -ne "Optimizing ${ORANGE}$file${NC}..."
+        mogrify -format "$format" -quality "$quality" "$file" &
+        spinner $!
+        
+        if [ $? -eq 0 ]; then
+            if [ "$(identify -format '%m' "$file" | tr '[:upper:]' '[:lower:]')" != "$(echo "$format" | tr '[:upper:]' '[:lower:]')" ]; then
+                if [ "$(echo "$format" | tr '[:upper:]' '[:lower:]')" != "$(echo "$file" | rev | cut -d'.' -f1 | rev | tr '[:upper:]' '[:lower:]')" ]; then
+                    rm "$file"
+                fi
+            fi
+        fi
+    }
+
+    if [ -d "$source" ]; then 
         local total_files=0
         local current_file=0
 
@@ -62,29 +78,14 @@ optimize_images() {
 
         for file in "$source"/*.{jpg,JPG,jpeg,JPEG,png,PNG,webP,WEBP,gif,GIF,bmp,BMP,tiff,TIFF}; do
             if [ -f "$file" ]; then
-                echo -ne "Optimizing ${ORANGE}$file${NC}..."
-                mogrify -format "$format" -quality "$quality" "$file" &
-                spinner $!
+                optimize_file "$file"
                 current_file=$((current_file + 1))
                 echo "$current_file/$total_files"
-
-                if [ "$(identify -format '%m' "$file" | tr '[:upper:]' '[:lower:]')" != "$(echo "$format" | tr '[:upper:]' '[:lower:]')" ]; then
-                    if [ "$(echo "$format" | tr '[:upper:]' '[:lower:]')" != "$(echo "$file" | rev | cut -d'.' -f1 | rev | tr '[:upper:]' '[:lower:]')" ]; then
-                        rm "$file"
-                    fi
-                fi
             fi
         done
-    elif [ -f "$source" ]; then
+    elif [ -f "$source" ]; then 
         if [[ $source == *.jpg || $source == *.JPG || $source == *.jpeg || $source == *.JPEG || $source == *.png || $source == *.PNG || $source == *.webP || $source == *.WEBP || $source == *.gif || $source == *.GIF || $source == *.bmp || $source == *.BMP || $source == *.tiff || $source == *.TIFF ]]; then
-            echo -e "Optimizing ${ORANGE}$source${NC}..."
-            mogrify -format "$format" -quality "$quality" "$source" &
-            spinner $!
-            if [ "$(identify -format '%m' "$source" | tr '[:upper:]' '[:lower:]')" != "$(echo "$format" | tr '[:upper:]' '[:lower:]')" ]; then
-                if [ "$(echo "$format" | tr '[:upper:]' '[:lower:]')" != "$(echo "$source" | rev | cut -d'.' -f1 | rev | tr '[:upper:]' '[:lower:]')" ]; then
-                    rm "$source"
-                fi
-            fi
+            optimize_file "$source"
         fi
     else
         echo -e "${ROUGE}Invalid source: $source${NC}"
@@ -225,9 +226,9 @@ copy_medias_to_rush() {
 
 optimize_medias_and_resize() {
     TIMER_START=$(date +%s)
-    optimize_images "$search_dir" "$degree" "$format"
-    resize_images "$search_dir" "$degree"
     optimize_video "$search_dir" "$degree"
+    resize_images "$search_dir" "$degree"
+    optimize_images "$search_dir" "$degree" "$format"
     TIMER_END=$(date +%s)
     TIMER_DIFF=$((TIMER_END - TIMER_START))
     echo -e "\n${VERT}Optimization and resizing completed in ${ORANGE}$TIMER_DIFF seconds${NC}"
